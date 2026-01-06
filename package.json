@@ -1,0 +1,43 @@
+{
+  "name": "open-command",
+  "displayName": "Command Runner",
+  "description": "List and execute VS Code commands via a multi-select picker",
+  "version": "0.0.1",
+  "publisher": "huyly",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "runCommands.showAndRun",
+        "title": "Run Commands..."
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "runCommands.showAndRun",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "watch": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --watch",
+    "pretest": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "esbuild": "^0.20.0"
+  }
+}
