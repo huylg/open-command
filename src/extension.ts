@@ -32,9 +32,10 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       try {
-        await vscode.commands.executeCommand(selected.label);
+        const result = await vscode.commands.executeCommand(selected.label);
+        result && vscode.window.showInformationMessage(`Command executed: ${result}`);
       } catch (error) {
-        vscode.window.showErrorMessage(`Failed to execute command: ${selected.label}`);
+        vscode.window.showErrorMessage(`Failed to execute command: ${error}`);
       }
     });
 
