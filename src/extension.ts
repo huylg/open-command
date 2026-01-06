@@ -3,7 +3,7 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand('runCommands.showAndRun', async () => {
     // Get all available commands including internal ones
-    const allCommands = await vscode.commands.getCommands(true);
+    const allCommands = await vscode.commands.getCommands();
 
     // Sort commands alphabetically
     allCommands.sort();
