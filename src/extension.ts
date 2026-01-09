@@ -8,9 +8,10 @@ export function activate(context: vscode.ExtensionContext) {
     // Sort commands alphabetically
     allCommands.sort();
 
-    // Create QuickPick items
+    // Create QuickPick items with buttons
     const items = allCommands.map((cmd) => ({
       label: cmd,
+      buttons: [{ iconPath: new vscode.ThemeIcon('copy'), tooltip: 'Copy command name' }],
     }));
 
     // Create and configure QuickPick
@@ -37,6 +38,12 @@ export function activate(context: vscode.ExtensionContext) {
       } catch (error) {
         vscode.window.showErrorMessage(`Failed to execute command: ${error}`);
       }
+    });
+
+    // Handle button clicks (copy)
+    quickPick.onDidTriggerItemButton(async (event) => {
+      await vscode.env.clipboard.writeText(event.item.label);
+      vscode.window.showInformationMessage(`Copied: ${event.item.label}`);
     });
 
     // Handle cancellation
