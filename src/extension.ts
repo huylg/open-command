@@ -34,7 +34,10 @@ export function activate(context: vscode.ExtensionContext) {
 
       try {
         const result = await vscode.commands.executeCommand(selected.label);
-        result && vscode.window.showInformationMessage(`Command executed: ${result}`);
+        if (result) {
+          const resultText = typeof result === 'object' ? JSON.stringify(result, null, 2) : String(result);
+          vscode.window.showInformationMessage(`Command executed: ${resultText}`);
+        }
       } catch (error) {
         vscode.window.showErrorMessage(`Failed to execute command: ${error}`);
       }
