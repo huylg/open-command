@@ -28,7 +28,6 @@ cursor --install-extension open-command-*.vsix
 
 ## Usage
 
-- **Keyboard Shortcut**: `Cmd+Shift+R` (Mac) / `Ctrl+Shift+R` (Windows/Linux)
 - **Command Palette**: Open with `Cmd+Shift+P` / `Ctrl+Shift+P` and run "Run Commands..."
 
 ### How it works
