@@ -20,13 +20,6 @@
         "command": "runCommands.showAndRun",
         "title": "Run Commands..."
       }
-    ],
-    "keybindings": [
-      {
-        "command": "runCommands.showAndRun",
-        "key": "ctrl+shift+r",
-        "mac": "cmd+shift+r"
-      }
     ]
   },
   "scripts": {
