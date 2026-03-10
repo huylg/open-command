@@ -4,6 +4,15 @@
   "description": "List and execute VS Code commands via a multi-select picker",
   "version": "0.0.1",
   "publisher": "huyly",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huylg/open-command.git"
+  },
+  "bugs": {
+    "url": "https://github.com/huylg/open-command/issues"
+  },
+  "homepage": "https://github.com/huylg/open-command#readme",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -14,6 +23,11 @@
     "onStartupFinished"
   ],
   "main": "./out/extension.js",
+  "files": [
+    "out/**",
+    "README.md",
+    "LICENSE"
+  ],
   "contributes": {
     "commands": [
       {
@@ -26,11 +40,13 @@
     "vscode:prepublish": "npm run compile",
     "compile": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
     "watch": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --watch",
-    "pretest": "npm run compile"
+    "pretest": "npm run compile",
+    "package:vsix": "vsce package"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^3.7.1",
     "esbuild": "^0.20.0"
   }
 }
