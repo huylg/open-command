@@ -57,6 +57,8 @@ cursor --install-extension open-command-*.vsix
 
 GitHub Actions builds the extension on every push, pull request, and manual run, then uploads the generated `.vsix` as a workflow artifact.
 
+When the workflow runs for a Git tag, it also publishes the `.vsix` file to GitHub Releases as a release asset. Push a version tag such as `v0.0.1` to create a release build.
+
 ## License
 
 MIT
