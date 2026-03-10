@@ -14,7 +14,8 @@ A VS Code/Cursor extension that lists all available commands and allows you to e
 ### From VSIX
 
 ```bash
-bunx @vscode/vsce package
+npm ci
+npm run package:vsix
 cursor --install-extension open-command-*.vsix
 ```
 
@@ -40,17 +41,23 @@ cursor --install-extension open-command-*.vsix
 
 ```bash
 # Install dependencies
-bun install
+npm ci
 
 # Compile
-bun run compile
+npm run compile
 
 # Package extension
-bunx @vscode/vsce package
+npm run package:vsix
 
 # Install in Cursor for testing
 cursor --install-extension open-command-*.vsix
 ```
+
+## CI
+
+GitHub Actions builds the extension on every push, pull request, and manual run, then uploads the generated `.vsix` as a workflow artifact.
+
+When the workflow runs for a Git tag, it also publishes the `.vsix` file to GitHub Releases as a release asset. Push a version tag such as `v0.0.1` to create a release build.
 
 ## License
 
