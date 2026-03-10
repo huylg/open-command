@@ -39,6 +39,7 @@ jobs:
         run: npm run package:vsix -- --out "${VSIX_PATH}"
 
       - name: Upload VSIX artifact
+        if: github.ref_type == 'tag'
         uses: actions/upload-artifact@v4
         with:
           name: open-command-vsix
